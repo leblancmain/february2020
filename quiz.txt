@@ -1,0 +1,34 @@
+Stolice 
+Hubert
+Stolica Polski:
+Warszawa
+Krakow
+Moskwa
+Berlin
+a
+Stolica Slowenii:
+Lubljana
+Bratyslawa
+Praga
+Zagrzeb
+a
+Stolica Gruzji
+Baku
+Erewan
+Tibilisi
+Teheran
+c
+Stolica Iraku
+Teheran
+Bagdad
+Abu Dabi
+Islambad
+b
+Stolica Australii:
+Sydney
+Melbourne
+Auckland
+Camberra
+d
+
+
