@@ -1,0 +1,86 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <algorithm>
+
+using namespace std;
+
+string temat, nick;
+string pytania[5];
+string odpA[5], odpB[5], odpC[5], odpD[5];
+string odpowiedzi[5];
+
+string wybor;
+
+int punkty = 0;
+
+int pytanie = 0;
+
+int nr_linii = 1;
+string linia;
+
+
+
+int main()
+{
+	fstream plik;
+	plik.open("quiz.txt", ios::in);
+	if (plik.good() == false)
+	{
+		cout << "Nie mozna otworzyc pliku"; 
+		exit(0);
+	}
+	
+		
+		while (getline(plik, linia))
+		{
+		
+			switch (nr_linii)
+			{
+			case 1: temat = linia; break;
+			case 2: nick = linia; break;
+			case 3: pytania[pytanie] = linia; break;
+			case 4: odpA[pytanie] = linia; break;
+			case 5: odpB[pytanie] = linia; break;
+			case 6: odpC[pytanie] = linia; break;
+			case 7: odpD[pytanie] = linia; break;
+			case 8: odpowiedzi[pytanie] = linia; break;
+			}
+			if (nr_linii == 8)
+			{
+				nr_linii = 2;
+				pytanie++;
+			}
+			nr_linii++;
+			
+		}
+		plik.close();
+
+		for (int i = 0; i <= 4; i++)
+		{
+			cout << pytania[i] << endl;
+			cout << "A. " << odpA[i] << endl;
+			cout << "B. " << odpB[i] << endl;
+			cout << "C. " << odpC[i] << endl;
+			cout << "D. " << odpD[i] << endl;
+
+			cout << "Podaj opdowiedz: " << endl;
+			cin >> wybor;
+			
+			transform(wybor.begin(), wybor.end(), wybor.begin(), ::tolower);
+
+			if (wybor == odpowiedzi[i])
+			{
+				cout << "Poprawna odpowiedz!" << endl;
+				punkty++;
+			}
+			else 
+			{
+				cout << "Niepoprawna odpowiedz!" << endl;;
+			}
+		}
+
+		cout << "Koniec quizu! Twoj wynik " << punkty;
+			
+	return 0;
+}
